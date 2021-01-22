@@ -1,3 +1,52 @@
-#id_formulario, #id_resultado{
-	display: none;
+
+@charset "utf-8";
+/* Documento de CSS*/
+nav{
+	background-color:#014764;(
+	background-image: url"img/snapbuilder.png");
+	height:6em;
+}
+#id_formulario{
+	display:flex;
+	justify-content: center;
+	
+}
+input{
+	
+	background-color:#002F42;
+	color: white;
+	border-style: none;
+}
+#id_resultado{
+	background-color:#002F42;
+	color:white;
+	margin-top:6em;
+	text-align: center;	
+}
+table{
+	
+	background: url(snapbuilder.png);
+	max-width: 100%;
+	width: 110%;
+}
+img{
+	width: 3em;
+	
+}
+a{
+	text-decoration:none;
+	
+}
+th{
+	font-size: 110%;
+	text-align: center;
+}
+audio{
+	
+}
+.cancion{
+   text-align: left;
+}
+body{
+	font-family: 'Kanit', sans-serif;
 }
