@@ -10,18 +10,18 @@ function busqueda (){
 	//recojo el texto escrito por el usuario
 	let buscar_nombre = document.getElementById("textobusqueda").value;
 	
-	console.log ("busqueda = " + buscar_nombre);
+	//console.log ("busqueda = " + buscar_nombre);
 	//si el texto es mayor a 3 caracteres comienza la busqueda
 	if(buscar_nombre.length > 3){
 		
 		let url = url_Itunes + buscar_nombre;
 		
-		console.log ("url = " + url);
+		//console.log ("url = " + url);
 		// traemos la respuesta del servidor
 		xhr.open("GET", url);
 		// pasar la lista a mostrar resultados
 		xhr.onreadystatechange = mostrarResultados;
-		// cierra la conexxion con el servidor
+		// cierra la conexion con el servidor
 		xhr.send(null);
 		}
 	
@@ -31,8 +31,8 @@ function mostrarBusqueda (lista_busqueda_js)
 	{
 	
 	
-	console.log (lista_busqueda_js.results.length);
-	console.log (lista_busqueda_js.results.length);
+	//console.log (lista_busqueda_js.results.length);
+	//console.log (lista_busqueda_js.results.length);
 	
 	
 		var table = document.createElement('table'), tr, td, tr_titles,th_preview,th_cancion,th_artista,th_colleccion; 
@@ -42,47 +42,47 @@ function mostrarBusqueda (lista_busqueda_js)
 		th_preview= document.createElement('th'); 
 		tr_titles.appendChild(th_preview); 
 		th_preview.innerHTML ='Reproducción';
-		console.log(th_preview);
+		//console.log(th_preview);
 		
 		th_cancion= document.createElement('th'); 
 		tr_titles.appendChild(th_cancion); 
 		th_cancion.innerHTML ='Cancion';
-		console.log(th_cancion);
+		//console.log(th_cancion);
 		
 	    th_artista= document.createElement('th'); 
 	    tr_titles.appendChild(th_artista); 
 	    th_artista.innerHTML ='Artista';
-		console.log(th_artista);
+		//console.log(th_artista);
 		
 		th_colleccion= document.createElement('th'); 
 		tr_titles.appendChild(th_colleccion); 
 		th_colleccion.innerHTML ='Album';
-		console.log(th_colleccion);
+		//console.log(th_colleccion);
 		
 		table.appendChild(tr_titles);
 		 
 		for (let i = 0; i < lista_busqueda_js.results.length; i++) { 
 		tr = document.createElement('tr'); 
 		
-		let td_tra_view = document.createElement('td'); 
-		tr.appendChild(td_tra_view); 
-		td_tra_view.innerHTML ="<audio src="+lista_busqueda_js.results[i].trackViewUrl+" preload='auto' controls></audio>";
-		console.log(td_tra_view);
+		let td_pre_view = document.createElement('td'); 
+		tr.appendChild(td_pre_view); 
+		td_pre_view.innerHTML ="<audio src="+lista_busqueda_js.results[i].previewUrl+" preload='auto' controls></audio>";
+		//console.log(td_tra_view);
 
 		let td_tra_name = document.createElement('td'); 
 		tr.appendChild(td_tra_name); 
 		td_tra_name.innerHTML =lista_busqueda_js.results[i].trackName;
-		console.log(td_tra_name);
+		//console.log(td_tra_name);
 		
 		let td_art_name = document.createElement('td'); 
 		tr.appendChild(td_art_name); 
 		td_art_name.innerHTML =lista_busqueda_js.results[i].artistName;
-		console.log(td_art_name);
+		//console.log(td_art_name);
 		
 		let td_col_name = document.createElement('td'); 
 		tr.appendChild(td_col_name); 
 		td_col_name.innerHTML =lista_busqueda_js.results[i].collectionName;
-		console.log(td_col_name); 
+		//console.log(td_col_name); 
 		
 		table.appendChild(tr); 
 		} 
@@ -96,12 +96,13 @@ function crearTabla (lista_busqueda){
 	let busqueda_js = lista_busqueda;
 	
 	let tabla_u = document.getElementById ("tlistacanciones");
-	let ttW = document-getElementById ("ttrackViewUrl")
+	let tpU = document-getElementById ("tpreviewUrl")
 	let ttN = document.getElementById ("ttrackName");
 	let taN = document.getElementById ("tartistName");
 	let tcN = document.getElementById ("tcollectionName");
 	
-	ttW.innerHTML = busqueda_js.results.trackViewUrl;
+	tpU.innerHTML = busqueda_js.results.previewUrl;
+	console.log(busqueda_js.results);
 	ttN.innerHTML = busqueda_js.trackName;
 	taN.innerHTML = busqueda_js.results.artistName;
 	tcN.innerHTML = busqueda_js.collectionName;
