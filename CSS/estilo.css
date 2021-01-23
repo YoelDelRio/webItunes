@@ -25,7 +25,9 @@ input{
 }
 table{
 	
-	background: url(snapbuilder.png);
+	background-image: url('/C:/Users/yoel/git/webItunes/img/snapbuilder.png');
+	
+	background-position: center;
 	max-width: 100%;
 	width: 110%;
 }

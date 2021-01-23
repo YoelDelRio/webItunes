@@ -7,28 +7,29 @@ var xhr = new XMLHttpRequest();
 var url_Itunes = 'https://itunes.apple.com/search/?media=music&term=';
 
 function busqueda (){
+	//recojo el texto escrito por el usuario
 	let buscar_nombre = document.getElementById("textobusqueda").value;
 	
 	console.log ("busqueda = " + buscar_nombre);
-	
+	//si el texto es mayor a 3 caracteres comienza la busqueda
 	if(buscar_nombre.length > 3){
 		
 		let url = url_Itunes + buscar_nombre;
 		
 		console.log ("url = " + url);
-		
+		// traemos la respuesta del servidor
 		xhr.open("GET", url);
-		
+		// pasar la lista a mostrar resultados
 		xhr.onreadystatechange = mostrarResultados;
-		
+		// cierra la conexxion con el servidor
 		xhr.send(null);
 		}
 	
 	}
 	
-function mostrarBusqueda (lista_busqueda)
+function mostrarBusqueda (lista_busqueda_js)
 	{
-	let lista_busqueda_js = JSON.parse (lista_busqueda);
+	
 	
 	console.log (lista_busqueda_js.results.length);
 	console.log (lista_busqueda_js.results.length);
@@ -110,7 +111,7 @@ function crearTabla (lista_busqueda){
 
 function listaVacia (){
 	let error = document.getElementById ("id_listaVacia");
-	error.innerHTML = document.write('hola');
+	error.innerHTML = 'hola';
 }
 
 function limpiarBusqueda()
@@ -126,18 +127,27 @@ function limpiarBusqueda()
 	
 function mostrarResultados()
 {
+	console.log(xhr.status);
+	console.log(xhr.readyState);
 	if (xhr.readyState == 4) {
 		limpiarBusqueda();
 		console.log("La respuesta del servidor ha llegado");
 		if (xhr.status == 200) 
 		{
 			console.log("200 - Lista recibida");
-			//TODO mostrar la lista en la paǵina
+			//como el servidor no me trae una lista vacia
+			//parseo el JSON aqui, y si es 0 el numero de resultados que trae
+			// invoco listaVacia() y le doy una alerta al usuario
 			console.log (xhr.responseText);
-			mostrarBusqueda (xhr.responseText);
+			let lista_busqueda_js = JSON.parse (xhr.responseText);
+			if(lista_busqueda_js.resultCount == 0){
+				listaVacia();
+			}else{
+			mostrarBusqueda (lista_busqueda_js);
+			}
 		} else if (xhr.status == 204) {
 			console.log("204 - Lista vacia");
-			listaVacia;
+			
 			
 									  }
 		else if (xhr.status == 500) {
