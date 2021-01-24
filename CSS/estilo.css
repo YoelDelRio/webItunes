@@ -2,14 +2,15 @@
 @charset "utf-8";
 /* Documento de CSS*/
 nav{
-	background-color:#014764;(
-	background-image: url"img/snapbuilder.png");
+	background-color:#014764;
+	/*background-image: url"img/snapbuilder.png");*/
 	height:6em;
+}
+#id_titulo{
+	
 }
 #id_formulario{
 	display:flex;
-	justify-content: center;
-	
 }
 input{
 	
@@ -24,31 +25,43 @@ input{
 	text-align: center;	
 }
 table{
-	
-	background-image: url('/C:/Users/yoel/git/webItunes/img/snapbuilder.png');
-	
+	background-image: url('/C:/Users/yoel/git/webItunes/img/snapbuilder1.png');
+	 background-repeat: no-repeat;
+	 background-size:cover;
 	background-position: center;
 	max-width: 100%;
 	width: 110%;
 }
-img{
+#id_logo{
 	width: 3em;
+}
+#logo{
+	width: 6em;	
+}
+#titulo{
+	width: 8em;
 	
 }
 a{
 	text-decoration:none;
-	
+	color:white;	
+}
+a:hover{
+	color: black;
 }
 th{
 	font-size: 110%;
 	text-align: center;
 }
-audio{
-	
+#id_listaVacia{
+	display: none;
+	margin-top: 12em;
+	justify-content: center;
 }
-.cancion{
-   text-align: left;
+#id_foto{
+	border-radius: 15px;
 }
+
 body{
 	font-family: 'Kanit', sans-serif;
 }

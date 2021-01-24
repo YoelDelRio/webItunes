@@ -33,7 +33,8 @@ function mostrarBusqueda (lista_busqueda_js)
 	
 	//console.log (lista_busqueda_js.results.length);
 	//console.log (lista_busqueda_js.results.length);
-	
+	let lista = document.getElementById ("id_listaVacia");
+	lista.style.display="none";
 	
 		var table = document.createElement('table'), tr, td, tr_titles,th_preview,th_cancion,th_artista,th_colleccion; 
 		
@@ -89,9 +90,11 @@ function mostrarBusqueda (lista_busqueda_js)
 		document.getElementById('id_resultado').appendChild(table);
 		} 
 		
+		
 function crearTabla (lista_busqueda){
 	
-	
+	let marketing = document.GetElementById("id_marketing");
+	marketing.style.display = "none";
 	//pasart de json a objeto js
 	let busqueda_js = lista_busqueda;
 	
@@ -106,13 +109,20 @@ function crearTabla (lista_busqueda){
 	ttN.innerHTML = busqueda_js.trackName;
 	taN.innerHTML = busqueda_js.results.artistName;
 	tcN.innerHTML = busqueda_js.collectionName;
-	
-	
 }
 
-function listaVacia (){
-	let error = document.getElementById ("id_listaVacia");
-	error.innerHTML = 'hola';
+function listaVacia (status ){
+	let lista = document.getElementById ("id_listaVacia");
+	let error = document.getElementById ("id_error");
+	let texto_error = document.getElementById ("id_texto_error");
+	if(status == 200){
+	error.innerHTML ="ERROR";
+	texto_error.innerHTML ="no se ha encontrado coincidencias con la busqueda pruebe otra vez";
+	}else {
+	error.innerHTML ="ERROR EN LA CONEXION";
+	texto_error.innerHTML ="no se ha podido estabecer conexion con el servidor, pruebe otra vez";
+	}
+	lista.style.display = "flex";
 }
 
 function limpiarBusqueda()
@@ -142,7 +152,7 @@ function mostrarResultados()
 			console.log (xhr.responseText);
 			let lista_busqueda_js = JSON.parse (xhr.responseText);
 			if(lista_busqueda_js.resultCount == 0){
-				listaVacia();
+				listaVacia(200);
 			}else{
 			mostrarBusqueda (lista_busqueda_js);
 			}
