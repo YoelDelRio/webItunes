@@ -93,8 +93,6 @@ function mostrarBusqueda (lista_busqueda_js)
 		
 function crearTabla (lista_busqueda){
 	
-	let marketing = document.GetElementById("id_marketing");
-	marketing.style.display = "none";
 	//pasart de json a objeto js
 	let busqueda_js = lista_busqueda;
 	

@@ -6,11 +6,11 @@ nav{
 	/*background-image: url"img/snapbuilder.png");*/
 	height:6em;
 }
-#id_titulo{
-	
-}
 #id_formulario{
 	display:flex;
+}
+#id_button{
+	border-radius: 1px;
 }
 input{
 	
@@ -39,19 +39,20 @@ table{
 	width: 6em;	
 }
 #titulo{
-	width: 8em;
-	
+	width: 8em;	
+}
+footer{
+	color: black;
+	font-size: 24px;
 }
 a{
-	text-decoration:none;
-	color:white;	
-}
-a:hover{
-	color: black;
+	text-decoration:none;	
 }
 th{
-	font-size: 110%;
+	font-size: 150%;
 	text-align: center;
+	text-shadow: black 12px;
+	
 }
 #id_listaVacia{
 	display: none;
@@ -61,7 +62,29 @@ th{
 #id_foto{
 	border-radius: 15px;
 }
-
 body{
 	font-family: 'Kanit', sans-serif;
+}
+/* For mobile phones: */
+@media only screen and (max-width: 600px) {
+#id_titulo{
+	display: none;
+}
+nav{
+	height: 12em;
+}
+#div_foto{
+	width: 100%;
+}
+table{
+	background-image: url('/C:/Users/yoel/git/webItunes/img/snapbuilder1.png');
+	 background-repeat: no-repeat;
+	 background-size:cover;
+}
+#id_resultado{
+ margin-top:12em;
+}
+audio{
+	width: 100%;
+}
 }
