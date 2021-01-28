@@ -67,7 +67,7 @@ function mostrarBusqueda (lista_busqueda_js)
 		
 		let td_pre_view = document.createElement('td'); 
 		tr.appendChild(td_pre_view); 
-		td_pre_view.innerHTML ="<audio src="+lista_busqueda_js.results[i].previewUrl+" preload='auto' controls></audio>";
+		td_pre_view.innerHTML ="<audio src="+lista_busqueda_js.results[i].previewUrl+" controls></audio>";
 		//console.log(td_tra_view);
 
 		let td_tra_name = document.createElement('td'); 
@@ -156,9 +156,10 @@ function mostrarResultados()
 			}
 		} else if (xhr.status == 204) {
 			console.log("204 - Lista vacia");
-			
-			
 									  }
+		else if (xhr.status == 206){
+			console.log("206 - Contenido Parcial");
+		}
 		else if (xhr.status == 500) {
 			console.log("500 -Ha habido un error. Intentelo más tarde");
 									}

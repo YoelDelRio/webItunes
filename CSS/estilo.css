@@ -19,7 +19,6 @@ input{
 	border-style: none;
 }
 #id_resultado{
-	background-color:#002F42;
 	color:white;
 	margin-top:6em;
 	text-align: center;	
@@ -86,5 +85,4 @@ table{
 }
 audio{
 	width: 100%;
-}
 }
